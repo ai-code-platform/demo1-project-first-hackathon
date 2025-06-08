@@ -1,7 +1,7 @@
 import { Trash2 } from "lucide-react";
+// submodule 1.4.
 import { Todo } from "@/pages/Index";
 
-// submodule 1.4.
 interface TodoListProps {
   todos: Todo[];
   // -submodule 1.4.
