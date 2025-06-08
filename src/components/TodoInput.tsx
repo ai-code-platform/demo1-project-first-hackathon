@@ -30,8 +30,14 @@ export const TodoInput = (
 
     return (
       <div className="bg-card rounded-lg border shadow-sm p-4">
-        <form onSubmit={handleSubmit} className="flex gap-2">
-          {/* submodule 1.1. */}
+         {/* submodule 1.1. */}
+        <form onSubmit={
+        // -submodule 1.1.
+        // submodule 1.2.
+        handleSubmit
+        // -submodule 1.2.
+        // submodule 1.1.
+        } className="flex gap-2">
           <input
             type="text"
             // -submodule 1.1.
