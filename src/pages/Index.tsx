@@ -1,15 +1,17 @@
+import { useState } from "react";
+import { TodoList } from "@/components/TodoList";
+import { TodoInput } from "@/components/TodoInput";
 
-import { useState } from 'react';
-import { TodoList } from '@/components/TodoList';
-import { TodoInput } from '@/components/TodoInput';
-
+// submodule 1.3.
 export interface Todo {
   id: string;
   text: string;
   createdAt: Date;
 }
+// -submodule 1.3.
 
 const Index = () => {
+  // submodule 1.3.
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodo = (text: string) => {
@@ -18,12 +20,15 @@ const Index = () => {
       text: text.trim(),
       createdAt: new Date(),
     };
-    setTodos(prev => [newTodo, ...prev]);
+    setTodos((prev) => [newTodo, ...prev]);
   };
+  // -submodule 1.3.
 
+  // submodule 1.5.
   const deleteTodo = (id: string) => {
-    setTodos(prev => prev.filter(todo => todo.id !== id));
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
+  // -submodule 1.5.
 
   return (
     <div className="min-h-screen bg-background">
@@ -32,10 +37,21 @@ const Index = () => {
           <h1 className="text-3xl font-bold text-foreground mb-2">Todo App</h1>
           <p className="text-muted-foreground">Keep track of your tasks</p>
         </div>
-        
+
         <div className="space-y-6">
-          <TodoInput onAddTodo={addTodo} />
-          <TodoList todos={todos} onDeleteTodo={deleteTodo} />
+          <TodoInput
+            // submodule 1.3.
+            onAddTodo={addTodo}
+            // -submodule 1.3.
+          />
+          <TodoList
+            // submodule 1.4.
+            todos={todos}
+            // -submodule 1.4.
+            // submodule 1.5.
+            onDeleteTodo={deleteTodo}
+            // -submodule 1.5.
+          />
         </div>
       </div>
     </div>
